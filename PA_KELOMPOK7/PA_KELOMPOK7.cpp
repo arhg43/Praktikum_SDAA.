@@ -543,9 +543,9 @@ void mainMenu(Peminjam*& head) {
 
                 if (metodeHapus == 1) {
                     hapusPeminjamQueue(head);
-                } else if (metodeHapus == 2) {
-                    pop(head);
                 } else if (metodeHapus == 3) {
+                    pop(head);
+                } else if (metodeHapus == 2) {
                     hapusPeminjamBerdasarkanID(head);  // Menambahkan pemanggilan hapus berdasarkan ID
                 } else if (metodeHapus == 4) {
                     cout << "Kembali ke menu awal...\n";
