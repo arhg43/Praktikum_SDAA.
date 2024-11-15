@@ -18,6 +18,40 @@ struct Peminjam {
 void hapusPeminjam(Peminjam*& head, const string& id);
 void hapusPeminjamBerdasarkanID(Peminjam*& head);
 
+void push(Peminjam*& top) {
+    Peminjam* baru = new Peminjam;
+    cout << "Masukkan ID Peminjam: ";
+    cin >> baru->id;
+
+    // Memastikan ID tidak duplikat
+    Peminjam* temp = top;
+    while (temp != nullptr) {
+        if (temp->id == baru->id) {
+            cout << "ID sudah ada, masukkan ID lain!" << endl;
+            delete baru;
+            return;
+        }
+        temp = temp->next;
+    }
+
+    cout << "Masukkan Nama Peminjam: ";
+    cin >> baru->nama;
+    cout << "Masukkan No HP: ";
+    cin >> baru->no_hp;
+    cout << "Masukkan Alamat: ";
+    cin >> baru->alamat;
+    cout << "Masukkan No KTP: ";
+    cin >> baru->no_ktp;
+    cout << "Masukkan Buku yang Dipinjam: ";
+    cin >> baru->buku;
+    cout << "Masukkan Batas Pengembalian: ";
+    cin >> baru->batas_pengembalian;
+
+    baru->next = top; // Set next dari baru menjadi top saat ini
+    top = baru; // Update top menjadi peminjam baru
+    cout << "Data peminjam berhasil ditambahkan ke stack!" << endl;
+}
+
 
 // Prosedur untuk menambahkan data peminjam ke dalam linked list
 void tambahPeminjam(Peminjam*& head) {
